@@ -4,7 +4,7 @@ import { checkRole } from '../middleware/roleMiddleware.js';
 // routers/userRoutes.js
 import { postUser,getAllUsers } from '../controller/employeeUser'; // Importing from your controller
 import { Login } from '../controller/contLogin.js'; // Importing from your controller
-import { postRecipe ,getRecipe,updateRecipe} from '../controller/contRecipe.js';
+import { postRecipe ,getRecipe,updateRecipe,deleteRecipe} from '../controller/contRecipe.js';
 
 const router = express.Router();
 
@@ -13,6 +13,7 @@ router.post('/user', postUser);
 router.post('/recipes', verifyToken, checkRole(['post_user','post_recipe', 'delete_recipe', 'delete_user','update_recipe']), postRecipe);
 router.get('/recipes', verifyToken, checkRole(['post_user','post_recipe', 'delete_recipe', 'delete_user','update_recipe']), getRecipe);
 router.put('/recipes/:recipeId', verifyToken, checkRole(['post_user','post_recipe', 'delete_recipe', 'delete_user','update_recipe']), updateRecipe);
+router.delete('/recipes/:recipeId', verifyToken, checkRole(['post_user','post_recipe', 'delete_recipe', 'delete_user','update_recipe']), deleteRecipe);
 //router.post('/recipe', postRecipe);
 //router.post('/user',postUser);
 router.get('/user', getAllUsers);

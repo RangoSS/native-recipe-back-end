@@ -126,15 +126,12 @@ export const deleteRecipe = async (req, res) => {
       // Extract userId from the authenticated user (set in middleware)
       const userId = req.user.id;
 
-      // Find the recipe by its ID and ensure it belongs to the authenticated user
-      const recipe = await Recipe.findOne({ _id: recipeId, userId });
+      // Find and delete the recipe by its ID and ensure it belongs to the authenticated user
+      const result = await Recipe.deleteOne({ _id: recipeId, userId });
 
-      if (!recipe) {
+      if (result.deletedCount === 0) {
           return res.status(404).json({ message: "Recipe not found or not authorized to delete" });
       }
-
-      // Delete the recipe from the database
-      await recipe.remove();
 
       // Respond with a success message
       return res.status(200).json({
@@ -145,4 +142,3 @@ export const deleteRecipe = async (req, res) => {
       return res.status(500).json({ message: "Server error", error: error.message });
   }
 };
-
