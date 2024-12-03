@@ -26,6 +26,7 @@ export const Login = async (req, res) => {
         }
 
         // Generate JWT token
+        //this will send token to middleware
         const token = jwt.sign(
             { id: user._id, role: user.role },
             process.env.JWT_SECRET, // Secret key from environment variables

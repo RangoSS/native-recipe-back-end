@@ -1,12 +1,12 @@
 
 
-curl -X POST http://localhost:3001/api/user \
+curl -X POST http://localhost:3003/api/user \
 -H "Content-Type: application/json" \
 -d '{
-    "name": "zack",
-    "surname": "monga",
-    "idNumber": "34456668890154",
-    "email": "monga@gmail.com",
+    "name": "juju",
+    "surname": "monada",
+    "idNumber": "34457768890154",
+    "email": "monada@gmail.com",
     "password": "123456",
     "role": "user",
     "designation": "Developer",
@@ -17,7 +17,7 @@ curl -X POST http://localhost:3001/api/user \
     "active": true
 }'
 
-curl -X POST http://localhost:3001/api/login \
+curl -X POST http://localhost:3003/api/login \
 -H "Content-Type: application/json" \
 -d '{
     
@@ -88,3 +88,19 @@ curl -X POST http://localhost:3003/api/recipes \
 curl -X GET http://localhost:3003/api/recipes \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDljMDk5Mzk4NmJhZDFlNjc0ZGJkNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzMzMjI3Mzk5LCJleHAiOjE3MzMyMzA5OTl9.iDBfbJUfloBXS3bq0IT1EagKAWvdBpG1mcs_ETm64b8"
+
+
+
+
+curl -X PUT http://localhost:3003/api/recipes/674eee6bb3a5c04a0e8c294f \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDljMDk5Mzk4NmJhZDFlNjc0ZGJkNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzMzMjMyNDk1LCJleHAiOjE3MzMyMzYwOTV9.KZYotaJ8QlhtVTid5NIpOn_aHLCmNYxofYa2Suvfc4Q" \
+-H "Content-Type: application/json" \
+-d '{
+    "name": "Updated Recipe Name",
+    "ingredients": ["Updated ingredient 1", "Updated ingredient 2"],
+    "instructions": "Updated instructions for the recipe.",
+    "category": "Updated Category",
+    "preparationTime": 20,
+    "cookingTime": 30,
+    "servings": 4
+}'
