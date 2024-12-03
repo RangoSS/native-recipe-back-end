@@ -13,7 +13,7 @@ app.use(cors());  // Enable CORS for all routes
 app.use(express.urlencoded({ extended: false }));  // Middleware to parse incoming requests with url-encoded payloads
 app.use(express.json());  // Middleware to parse incoming JSON requests
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3003;
 
 // MongoDB connection using Mongoose
 

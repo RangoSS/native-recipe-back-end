@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/employee.js';  // Import the User model
+import { User } from '../models/employee.js';  // Import the User model
 
 // POST: Login user
 export const Login = async (req, res) => {
@@ -27,12 +27,20 @@ export const Login = async (req, res) => {
 
         // Generate JWT token
         const token = jwt.sign(
-            { userId: user._id, role: user.role },
+            { id: user._id, role: user.role },
             process.env.JWT_SECRET, // Secret key from environment variables
             { expiresIn: '1h' } // Token expiration (1 hour)
         );
-         // Log the token to the console for debugging
-         console.log('Generated JWT Token:', token);
+
+        // Log the token to the console for debugging
+        console.log('Generated JWT Token:', token);
+        console.log('User Data:', {
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+            active: user.active
+        });
         // Respond with the token and user info (excluding the password)
         return res.status(200).json({
             message: 'Login successful',

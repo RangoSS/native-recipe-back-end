@@ -3,7 +3,7 @@
 // Define role-based permissions
 const rolePermissions = {
     admin: ['post_user', 'update_user', 'delete_user', 'create_user'], // admin permissions
-    user: ['post_user', 'update_user', 'delete_recipe', 'update_recipe'], // user permissions
+    user: ['post_user', 'update_user', 'delete_recipe', 'update_recipe','post_recipe'], // user permissions
 };
 
 export const checkRole = (requiredPermissions) => {

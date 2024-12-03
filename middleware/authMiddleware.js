@@ -10,6 +10,7 @@ export const verifyToken = (req, res, next) => {
     try {
         // Verify the JWT using the secret key stored in your environment variables
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        console.log("alabama tok JWT:", decoded);
         req.user = decoded; // Attach the decoded user data (userId, role, etc.) to req.user
         next(); // Proceed to the next middleware or route handler
     } catch (error) {
