@@ -1,4 +1,6 @@
 
+the front-end is PS C:\Users\tshid\Documents\MLAB\REACT-NATIVE\native-recipe-front> 
+
 
 curl -X POST http://localhost:3003/api/user \
 -H "Content-Type: application/json" \

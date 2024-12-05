@@ -55,7 +55,8 @@ export const postRecipe = async (req, res) => {
 
 export const getRecipe = async (req, res) => {
     try {
-        const {userId}=req.query;
+      const userId = req.user.id; // Access the user ID from the middleware
+        console.log('see user id from ',userId)
       // Fetch all recipes from the database
       const recipes = await Recipe.find({userId: userId});
   
@@ -80,7 +81,9 @@ export const getRecipe = async (req, res) => {
       });
     }
   };
+
   
+
   export const updateRecipe = async (req, res) => {
     try {
         const { recipeId } = req.params;  // Recipe ID from the URL parameter

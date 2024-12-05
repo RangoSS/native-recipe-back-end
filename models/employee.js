@@ -27,7 +27,7 @@ export const User = mongoose.models.User || model("User", userSchema);
 const recipeSchema = new mongoose.Schema(
     {
       name: { type: String, required: true }, // Recipe name
-      ingredients: { type: [String], required: true }, // Array of ingredient strings
+      ingredients: { type: String, required: true }, // Array of ingredient strings
       instructions: { type: String, required: true }, // Preparation instructions
       category: { type: String, required: true }, // Category (e.g., Dessert, Main Course)
       preparationTime: { type: String, required: true }, // Time in minutes

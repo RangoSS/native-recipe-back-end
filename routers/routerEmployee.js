@@ -19,7 +19,7 @@ router.delete('/recipes/:recipeId', verifyToken, checkRole(['post_user','post_re
 router.get('/user', getAllUsers);
 router.post('/login', Login);
 //router.post('/l', Login);
-
+//router.get('/recipes', getRecipe);
 
 
 // GET endpoint to retrieve all employees
