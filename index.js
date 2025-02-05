@@ -39,6 +39,7 @@ app.use((req, res, next) => {
     "34.211.200.85",
     "::1", // IPv6 localhost
     "127.0.0.1", // IPv4 localhost
+    "196.24.217.250"
   ];
 
   if (allowedIPs.includes(clientIP)) {
